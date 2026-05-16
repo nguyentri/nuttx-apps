@@ -1,0 +1,42 @@
+#
+# RZ/V2H hardware test app
+#
+
+config TESTING_RZV_HWTEST
+	tristate "RZ/V2H hardware test (RTT-based CI)"
+	default n
+	---help---
+		On-target test harness for UART/SPI/SCI-I2C drivers.
+		Emits structured PASS/FAIL lines over SEGGER RTT for off-target
+		JUnit conversion. See plans/260516-1051-hwtest-ci-rtt/.
+
+if TESTING_RZV_HWTEST
+
+config TESTING_RZV_HWTEST_PROGNAME
+	string "Program name"
+	default "hwtest"
+
+config TESTING_RZV_HWTEST_PRIORITY
+	int "Task priority"
+	default 100
+
+config TESTING_RZV_HWTEST_STACKSIZE
+	int "Stack size"
+	default 8192
+
+choice
+	prompt "Test mode (selects which suites to run)"
+	default TESTING_RZV_HWTEST_MODE_UART_LOOPBACK
+
+config TESTING_RZV_HWTEST_MODE_UART_LOOPBACK
+	bool "UART loopback (TX<->RX jumpers)"
+
+config TESTING_RZV_HWTEST_MODE_SPI_LOOPBACK
+	bool "SPI loopback (MOSI<->MISO jumper)"
+
+config TESTING_RZV_HWTEST_MODE_HIL_FULL
+	bool "HIL full (real drone sensors per HARDWARE.md)"
+
+endchoice
+
+endif

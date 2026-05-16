@@ -1,0 +1,37 @@
+#
+# For a description of the syntax of this configuration file,
+# see the file kconfig-language.txt in the NuttX tools repository.
+#
+
+config EXAMPLES_RZV_DMAC
+	tristate "RZV2H DMAC test application"
+	default n
+	depends on RZV_DMAC
+	---help---
+		Enable the RZV2H DMAC test application. This application
+		demonstrates the usage of the DMAC driver with various
+		test scenarios including:
+		- Basic memory-to-memory transfers
+		- Interrupt-driven transfers
+		- Different transfer sizes (1-128 bytes)
+		- Fixed address mode (peripheral simulation)
+		- Throughput measurements
+
+if EXAMPLES_RZV_DMAC
+
+config EXAMPLES_RZV_DMAC_PROGNAME
+	string "Program name"
+	default "rzv_dmac"
+	---help---
+		This is the name of the program that will be used when the NSH ELF
+		program is installed.
+
+config EXAMPLES_RZV_DMAC_PRIORITY
+	int "RZV DMAC test task priority"
+	default 100
+
+config EXAMPLES_RZV_DMAC_STACKSIZE
+	int "RZV DMAC test stack size"
+	default DEFAULT_TASK_STACKSIZE
+
+endif

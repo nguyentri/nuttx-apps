@@ -1,0 +1,3 @@
+ifneq ($(CONFIG_TESTING_RZV_HWTEST),)
+CONFIGURED_APPS += $(APPDIR)/testing/rzv_hwtest
+endif

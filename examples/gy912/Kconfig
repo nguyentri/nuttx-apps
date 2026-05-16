@@ -1,0 +1,31 @@
+#
+# For a description of the syntax of this configuration file,
+# see the file kconfig-language.txt in the NuttX tools repository.
+#
+
+config EXAMPLES_GY912
+	tristate "GY-912 Sensor Example"
+	default n
+	depends on RA_SPI && SENSORS
+	---help---
+		Enable the GY-912 sensor example application.
+		This demonstrates SPI communication with ICM20948 and BMP388 sensors.
+
+if EXAMPLES_GY912
+
+config EXAMPLES_GY912_PROGNAME
+	string "Program name"
+	default "gy912_test"
+	---help---
+		This is the name of the program that will be used when the NSH ELF
+		program is installed.
+
+config EXAMPLES_GY912_PRIORITY
+	int "GY-912 task priority"
+	default 100
+
+config EXAMPLES_GY912_STACKSIZE
+	int "GY-912 stack size"
+	default 4096
+
+endif
