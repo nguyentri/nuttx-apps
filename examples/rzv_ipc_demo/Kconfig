@@ -1,0 +1,39 @@
+#
+# For a description of the syntax of this configuration file,
+# see the file kconfig-language.txt in the NuttX tools repository.
+#
+
+config EXAMPLES_RZV_IPC_DEMO
+	tristate "RZ/V2H IPC ping/echo demo (ipctest)"
+	default n
+	depends on IPCC
+	---help---
+		Enable the RZ/V2H IPC ping/echo demo application.
+
+		Provides an 'ipctest' command that exercises any /dev/ipccN device:
+
+		  --ping  -d <dev> -n <count> [-s <size>] [--timeout <ms>]
+		     Send N fixed-size messages, expect echo from peer, print stats.
+
+		  --echo  -d <dev>
+		     Loop: read one message, write it back. Runs on the peer core.
+
+		Works with both rptun-backed /dev/ipcc0 and raw-ring /dev/ipcc1,2.
+
+if EXAMPLES_RZV_IPC_DEMO
+
+config EXAMPLES_RZV_IPC_DEMO_PROGNAME
+	string "Program name"
+	default "ipctest"
+	---help---
+		Name of the installed NSH builtin command.
+
+config EXAMPLES_RZV_IPC_DEMO_PRIORITY
+	int "Task priority"
+	default 100
+
+config EXAMPLES_RZV_IPC_DEMO_STACKSIZE
+	int "Stack size"
+	default DEFAULT_TASK_STACKSIZE
+
+endif

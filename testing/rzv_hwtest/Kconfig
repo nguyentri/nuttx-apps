@@ -8,7 +8,7 @@ config TESTING_RZV_HWTEST
 	---help---
 		On-target test harness for UART/SPI/SCI-I2C drivers.
 		Emits structured PASS/FAIL lines over SEGGER RTT for off-target
-		JUnit conversion. See plans/260516-1051-hwtest-ci-rtt/.
+		JUnit conversion. See plans/260516-1051-ci-rtt/.
 
 if TESTING_RZV_HWTEST
 
