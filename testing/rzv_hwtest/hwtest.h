@@ -13,6 +13,8 @@
 #define __APPS_TESTING_RZV_HWTEST_HWTEST_H
 
 #include <stdint.h>
+#include <stdio.h>
+#include <string.h>
 #include <syslog.h>
 
 enum hwtest_result_e
