@@ -1,4 +1,4 @@
-/* UART loopback tests — TX<->RX jumpers per HARDWARE.md.
+/* UART loopback tests — TX<->RX jumpers per the RDK-RZ/V2H pinout.
  * Device paths follow PX4 convention (UART4 -> /dev/ttyS4, etc.); the
  * NuttX defconfig must map RZ/V2H SCI channels onto these tty numbers.
  */

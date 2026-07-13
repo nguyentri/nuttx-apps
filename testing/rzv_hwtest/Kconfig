@@ -35,7 +35,7 @@ config TESTING_RZV_HWTEST_MODE_SPI_LOOPBACK
 	bool "SPI loopback (MOSI<->MISO jumper)"
 
 config TESTING_RZV_HWTEST_MODE_HIL_FULL
-	bool "HIL full (real drone sensors per HARDWARE.md)"
+	bool "HIL full (real drone sensors per RDK-RZ/V2H pinout)"
 
 endchoice
 

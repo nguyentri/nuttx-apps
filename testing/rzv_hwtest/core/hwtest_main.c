@@ -27,7 +27,7 @@ int main(int argc, char *argv[])
   cases = spi_loopback_cases(&n);
 #elif defined(CONFIG_TESTING_RZV_HWTEST_MODE_HIL_FULL)
   mode = "hil-full";
-  wiring = "mpu9250+bmp280+gps-m10+tfmini-per-HARDWARE.md";
+  wiring = "mpu9250+bmp280+gps-m10+tfmini-per-rdk-rzv2h-pinout";
   cases = hil_full_cases(&n);
 #endif
 
