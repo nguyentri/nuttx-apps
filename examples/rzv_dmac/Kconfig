@@ -8,14 +8,10 @@ config EXAMPLES_RZV_DMAC
 	default n
 	depends on RZV_DMAC
 	---help---
-		Enable the RZV2H DMAC test application. This application
-		demonstrates the usage of the DMAC driver with various
-		test scenarios including:
-		- Basic memory-to-memory transfers
-		- Interrupt-driven transfers
-		- Different transfer sizes (1-128 bytes)
-		- Fixed address mode (peripheral simulation)
-		- Throughput measurements
+		Enable the RZ/V2H CR8-0 DMAC polling memory-copy test. It uses
+		channel 0 with one aligned 1 KiB, 4-byte incrementing transfer.
+		Hardware triggers, callbacks, and peripheral transfers are not
+		part of this example.
 
 if EXAMPLES_RZV_DMAC
 

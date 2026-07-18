@@ -1,5 +1,5 @@
 ############################################################################
-# apps/examples/rzv_dmac/Makefile
+# apps/examples/rzv_dmac/Make.defs
 #
 # Licensed to the Apache Software Foundation (ASF) under one or more
 # contributor license agreements.  See the NOTICE file distributed with
@@ -18,19 +18,6 @@
 #
 ############################################################################
 
-include $(APPDIR)/Make.defs
-
-CFLAGS += -I$(TOPDIR)
-
-# RZV2H DMAC test application
-
-PROGNAME  = $(CONFIG_EXAMPLES_RZV_DMAC_PROGNAME)
-PRIORITY  = $(CONFIG_EXAMPLES_RZV_DMAC_PRIORITY)
-STACKSIZE = $(CONFIG_EXAMPLES_RZV_DMAC_STACKSIZE)
-MODULE    = $(CONFIG_EXAMPLES_RZV_DMAC)
-
-# RZV DMAC test application
-
-MAINSRC = rzv_dmac_main.c
-
-include $(APPDIR)/Application.mk
+ifneq ($(CONFIG_EXAMPLES_RZV_DMAC),)
+CONFIGURED_APPS += $(APPDIR)/examples/rzv_dmac
+endif
